@@ -35,10 +35,7 @@ namespace AdoNetCore
         }
 
 
-        private async 
-
-        Task
-CargarEmpleados(string oficio)
+        private async void CargarEmpleados(string oficio)
         {
             this.lstEmpleados.Items.Clear();
             List<string> empleados = new List<string>();
@@ -50,9 +47,7 @@ CargarEmpleados(string oficio)
 
         }
 
-        private async 
-        Task
-CargarLabels(string oficio) {
+        private async void CargarLabels(string oficio) {
             List<int> list = await this.rep.getDatosSalario(oficio);
             this.lblMaximoSalario.Text = list[0].ToString();
             this.lblMediaSalarial.Text = list[1].ToString();
@@ -63,8 +58,8 @@ CargarLabels(string oficio) {
         private async void lstOficios_SelectedIndexChanged(object sender, EventArgs e)
         {
             string oficioSeleccionado = this.lstOficios.SelectedItem.ToString();
-            await CargarEmpleados(oficioSeleccionado);
-            await CargarLabels(oficioSeleccionado);
+            CargarEmpleados(oficioSeleccionado);
+            CargarLabels(oficioSeleccionado);
 
         }
 
